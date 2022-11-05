@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "ShootingRange",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "C:\\Program Files (x86)\\UnrealEngine\\UE_5.0\\UE_5.0"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off"
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	}
+}
