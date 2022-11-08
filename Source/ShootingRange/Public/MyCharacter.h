@@ -3,17 +3,17 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
-#include "P_Player.generated.h"
+#include "GameFramework/Character.h"
+#include "MyCharacter.generated.h"
 
 UCLASS()
-class SHOOTINGRANGE_API AP_Player : public APawn
+class SHOOTINGRANGE_API AMyCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this pawn's properties
-	AP_Player();
+	AMyCharacter();
 
 protected:
 	// Called when the game starts or when spawned
@@ -23,7 +23,7 @@ protected:
 	class USpringArmComponent *CameraBoom;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Components")
-	class UCameraComponent *FollowCamera;
+	class UCameraComponent *CameraComp;
 
 	// Arrow Component for the Camera shoulder viewpoint location
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
@@ -40,7 +40,4 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent *PlayerInputComponent) override;
 
-private:
-	void RotateX(float axisValue);
-	void RotateY(float axisValue);
 };
