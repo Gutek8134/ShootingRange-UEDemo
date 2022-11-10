@@ -21,24 +21,29 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Components")
-	class USpringArmComponent *CameraBoom;
+		class USpringArmComponent* CameraBoom;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Components")
-	class UCameraComponent *CameraComp;
+		class UCameraComponent* CameraComp;
 
 	// Arrow Component for the Camera shoulder viewpoint location
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	class UArrowComponent *CameraRShoulderLocation;
+		class UArrowComponent* CameraRShoulderLocation;
 
 	// Arrow Component for the Camera Origin viewpoint location
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	class UArrowComponent *CameraOriginLocation;
+		class UArrowComponent* CameraOriginLocation;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+		FVector bulletPos;
 
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent *PlayerInputComponent) override;
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+private:
+	void Shoot();
 };

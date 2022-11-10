@@ -4,6 +4,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/ArrowComponent.h"
+#include "Bullet.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -51,4 +52,9 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent *PlayerInputCompone
 {
 	PlayerInputComponent->BindAxis("RotateX", this, &AMyCharacter::AddControllerYawInput);
 	PlayerInputComponent->BindAxis("RotateY", this, &AMyCharacter::AddControllerPitchInput);
+	PlayerInputComponent->BindAction("Shoot", IE_RELEASED, this, &AMyCharacter::Shoot);
+}
+
+void AMyCharacter::Shoot() {
+
 }
