@@ -50,6 +50,6 @@ void ABullet::BeginPlay()
 void ABullet::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+    SetActorLocation(GetActorLocation()+(FVector(0,10000,0)*DeltaTime));
 }
 

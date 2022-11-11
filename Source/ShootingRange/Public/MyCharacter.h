@@ -37,6 +37,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 		FVector bulletPos;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UBoxComponent* SpawnVolume;
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
