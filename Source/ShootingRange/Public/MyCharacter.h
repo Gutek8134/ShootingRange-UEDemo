@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "GameFramework/Actor.h"
 #include "MyCharacter.generated.h"
 
 UCLASS()
@@ -34,11 +33,8 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 		class UArrowComponent* CameraOriginLocation;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-		FVector bulletPos;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UBoxComponent* SpawnVolume;
+	UPROPERTY(EditAnywhere)
+		class UArrowComponent* BulletSpawnLocation;
 
 public:
 	// Called every frame
@@ -49,4 +45,5 @@ public:
 
 private:
 	void Shoot();
+
 };

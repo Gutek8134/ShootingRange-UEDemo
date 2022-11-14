@@ -32,4 +32,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UParticleSystemComponent* ParticleComp;
+	
+	UPROPERTY(EditAnywhere)
+		int speed;
 };

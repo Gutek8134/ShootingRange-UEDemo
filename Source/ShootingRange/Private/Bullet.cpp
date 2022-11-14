@@ -37,6 +37,8 @@ ABullet::ABullet()
     //Using Constructor Helpers to set our Particle Comp with our Fire Particle Comp.
     static ConstructorHelpers::FObjectFinder<UParticleSystem>ParticleCompAsset(TEXT("ParticleSystem'/Game/StarterContent/Particles/P_Fire.P_Fire'"));
     ParticleComp->SetTemplate(ParticleCompAsset.Object);
+
+    speed = 10;
 }
 
 // Called when the game starts or when spawned
@@ -50,6 +52,6 @@ void ABullet::BeginPlay()
 void ABullet::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-    SetActorLocation(GetActorLocation()+(FVector(0,10000,0)*DeltaTime));
+    SetActorLocation(GetActorLocation()+(FVector(0, speed, 0)*DeltaTime));
 }
 
