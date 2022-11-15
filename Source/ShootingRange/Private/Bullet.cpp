@@ -4,6 +4,7 @@
 #include "Bullet.h"
 #include "Components/SphereComponent.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "BulletMovementComponent.h"
 
 // Sets default values
 ABullet::ABullet()
@@ -39,13 +40,16 @@ ABullet::ABullet()
     ParticleComp->SetTemplate(ParticleCompAsset.Object);
 
     speed = 10;
+    movementComp = CreateDefaultSubobject<UBulletMovementComponent>(TEXT("MovementComponent"));
+    movementComp->UpdatedComponent = RootComponent;
+    
 }
 
 // Called when the game starts or when spawned
 void ABullet::BeginPlay()
 {
 	Super::BeginPlay();
-	
+    movementComp->speed = this->speed;
 }
 
 // Called every frame

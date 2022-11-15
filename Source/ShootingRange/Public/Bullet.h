@@ -35,4 +35,9 @@ protected:
 	
 	UPROPERTY(EditAnywhere)
 		int speed;
+	
+	UPROPERTY()
+		class UBulletMovementComponent* movementComp;
+
+
 };
