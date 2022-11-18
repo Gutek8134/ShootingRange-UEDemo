@@ -15,8 +15,8 @@ void UBulletMovementComponent::TickComponent
 	FActorComponentTickFunction* ThisTickFunction
 ) {
 	FHitResult Hit;
-	SafeMoveUpdatedComponent(FVector(0, speed, 0), UpdatedComponent->GetComponentRotation(), false, Hit);
-	if (!Hit.IsValidBlockingHit()) {
+	SafeMoveUpdatedComponent(UpdatedComponent->GetRelativeRotation().RotateVector(FVector(speed, 0, 0)), UpdatedComponent->GetRelativeRotation(), false, Hit);
+	if (Hit.IsValidBlockingHit()) {
 		UE_LOG(LogTemp, Warning, TEXT("Hit!"));
 		UpdatedComponent->GetOwner()->Destroy();
 	}

@@ -32,6 +32,7 @@ AMyCharacter::AMyCharacter()
 	CameraComp->SetupAttachment(CameraBoom);
 	CameraRShoulderLocation->SetupAttachment(GetMesh());
 	CameraOriginLocation->SetupAttachment(GetMesh());
+	offset = FVector(0);
 }
 
 // Called when the game starts or when spawned
@@ -44,6 +45,7 @@ void AMyCharacter::BeginPlay()
 void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	SetActorRotation(FRotator(0, GetControlRotation().Yaw, 0));
 }
 
 // Called to bind functionality to input
@@ -55,6 +57,6 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 }
 
 void AMyCharacter::Shoot() {
-	GetWorld()->SpawnActor<ABullet>(BulletSpawnLocation->GetRelativeLocation(), GetActorRotation());
+	GetWorld()->SpawnActor<ABullet>(GetActorLocation() + offset, GetController()->GetControlRotation());
 	UE_LOG(LogTemp, Warning, TEXT("Shot!"))
 }

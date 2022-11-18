@@ -18,7 +18,7 @@ ABullet::ABullet()
     ParticleComp = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("ParticleComp"));
 
     //Attaching the Components and setting physics
-    SphereComp->SetupAttachment(RootComponent);
+    RootComponent = SphereComp;
     SphereComp->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 
     StaticMeshComp->AttachToComponent(SphereComp, FAttachmentTransformRules::KeepRelativeTransform);
@@ -56,6 +56,5 @@ void ABullet::BeginPlay()
 void ABullet::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-    SetActorLocation(GetActorLocation()+(FVector(0, speed, 0)*DeltaTime));
 }
 

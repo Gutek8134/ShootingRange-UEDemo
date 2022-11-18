@@ -36,6 +36,9 @@ protected:
 	UPROPERTY(EditAnywhere)
 		class UArrowComponent* BulletSpawnLocation;
 
+	UPROPERTY(EditAnywhere, Category="BulletSpawn")
+		FVector offset;
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
