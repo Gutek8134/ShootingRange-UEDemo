@@ -19,25 +19,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(EditAnywhere)
+		class UBulletMovementComponent* movementComponent;
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-protected:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		UStaticMeshComponent* StaticMeshComp;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class USphereComponent* SphereComp;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UParticleSystemComponent* ParticleComp;
-	
-	UPROPERTY(EditAnywhere)
-		int speed;
-	
-	UPROPERTY()
-		class UBulletMovementComponent* movementComp;
-
 
 };

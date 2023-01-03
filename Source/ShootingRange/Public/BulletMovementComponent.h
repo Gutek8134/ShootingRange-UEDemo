@@ -18,7 +18,7 @@ public:
 	UBulletMovementComponent();
 
 	UPROPERTY(EditAnywhere)
-		int speed;
+		int speed = 10;
 
 protected:
 	virtual void TickComponent

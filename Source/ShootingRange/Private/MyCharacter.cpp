@@ -11,28 +11,6 @@ AMyCharacter::AMyCharacter()
 {
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
-	CameraRShoulderLocation = CreateDefaultSubobject<UArrowComponent>(TEXT("CameraRShoulderLocation"));
-	CameraOriginLocation = CreateDefaultSubobject<UArrowComponent>(TEXT("CameraOriginLocation"));
-	BulletSpawnLocation = CreateDefaultSubobject<UArrowComponent>(TEXT("BulletSpawnLocation"));
-
-	// Initialize the Camera Boom
-	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
-
-	// Setup Camera Boom attachment to the Root component of the class
-	CameraBoom->SetupAttachment(GetMesh());
-
-	// Set the boolean to use the PawnControlRotation to true.
-	CameraBoom->bUsePawnControlRotation = true;
-
-	// Initialize the FollowCamera
-	CameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComp"));
-
-	// Set FollowCamera attachment to the Camera Boom
-	CameraComp->SetupAttachment(CameraBoom);
-	CameraRShoulderLocation->SetupAttachment(GetMesh());
-	CameraOriginLocation->SetupAttachment(GetMesh());
-	offset = FVector(0);
 }
 
 // Called when the game starts or when spawned
@@ -57,6 +35,5 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 }
 
 void AMyCharacter::Shoot() {
-	GetWorld()->SpawnActor<ABullet>(GetActorLocation() + offset, GetController()->GetControlRotation());
 	UE_LOG(LogTemp, Warning, TEXT("Shot!"))
 }

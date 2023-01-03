@@ -19,25 +19,12 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Components")
-		class USpringArmComponent* CameraBoom;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Components")
-		class UCameraComponent* CameraComp;
-
-	// Arrow Component for the Camera shoulder viewpoint location
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-		class UArrowComponent* CameraRShoulderLocation;
-
-	// Arrow Component for the Camera Origin viewpoint location
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-		class UArrowComponent* CameraOriginLocation;
-
-	UPROPERTY(EditAnywhere)
-		class UArrowComponent* BulletSpawnLocation;
-
 	UPROPERTY(EditAnywhere, Category="BulletSpawn")
-		FVector offset;
+		FVector offset = FVector(0);
+
+	UPROPERTY(EditDefaultsOnly, Category = "BulletSpawn")
+		class AActor* bullet;
+
 
 public:
 	// Called every frame
