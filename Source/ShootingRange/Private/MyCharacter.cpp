@@ -23,7 +23,7 @@ void AMyCharacter::BeginPlay()
 void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	SetActorRotation(FRotator(0, GetControlRotation().Yaw, 0));
+	SetActorRotation(FRotator(GetControlRotation().Pitch, GetControlRotation().Yaw, 0));
 }
 
 // Called to bind functionality to input
@@ -35,5 +35,6 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 }
 
 void AMyCharacter::Shoot() {
-	UE_LOG(LogTemp, Warning, TEXT("Shot!"))
+	UE_LOG(LogTemp, Warning, TEXT("Shot!"));
+	GetWorld()->SpawnActor<AActor>(ProjectileType, this->GetActorLocation() + GetControlRotation().RotateVector(offset), this->GetControlRotation());
 }

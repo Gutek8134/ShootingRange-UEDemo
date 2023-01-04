@@ -19,11 +19,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, Category="BulletSpawn")
+	UPROPERTY(EditAnywhere, Category="Bullet")
 		FVector offset = FVector(0);
 
-	UPROPERTY(EditDefaultsOnly, Category = "BulletSpawn")
-		class AActor* bullet;
+	UPROPERTY(EditDefaultsOnly, Category = "Bullet")
+		TSubclassOf<class ABullet> ProjectileType;
 
 
 public:
