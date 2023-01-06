@@ -19,8 +19,14 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadWrite)
 		class UBulletMovementComponent* movementComponent;
+
+	UPROPERTY(EditAnywhere)
+		int speed = 10;
+
+	UPROPERTY(EditAnywhere)
+		int maxDistance = 500;
 
 public:
 	// Called every frame

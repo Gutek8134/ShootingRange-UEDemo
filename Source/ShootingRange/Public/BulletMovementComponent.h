@@ -7,18 +7,22 @@
 #include "BulletMovementComponent.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class SHOOTINGRANGE_API UBulletMovementComponent : public UProjectileMovementComponent
 {
 	GENERATED_BODY()
-	
+
 public:
 	UBulletMovementComponent();
 
-	UPROPERTY(EditAnywhere)
-		int speed = 10;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int speed = 10;
+
+	int maxDistance = 500;
+
+	float travelledDistance;
 
 protected:
 	virtual void TickComponent
@@ -27,4 +31,5 @@ protected:
 		enum ELevelTick TickType,
 		FActorComponentTickFunction* ThisTickFunction
 	) override;
+
 };
