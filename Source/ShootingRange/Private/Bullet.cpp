@@ -13,10 +13,6 @@ ABullet::ABullet()
     PrimaryActorTick.bCanEverTick = true;
 
 	movementComponent = CreateDefaultSubobject<UBulletMovementComponent>(TEXT("MovementComponent"));
-
-	movementComponent->maxDistance = this->maxDistance;
-	movementComponent->speed = this->speed;
-	movementComponent->travelledDistance = 0;
 }
 
 // Called when the game starts or when spawned

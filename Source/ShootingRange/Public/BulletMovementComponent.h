@@ -18,10 +18,12 @@ public:
 	UBulletMovementComponent();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int speed = 10;
+	int speed = 1000;
 
-	int maxDistance = 500;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float maxDistance = 500;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float travelledDistance;
 
 protected:
