@@ -17,6 +17,10 @@ void UBulletMovementComponent::TickComponent
 	FHitResult Hit;
 	SafeMoveUpdatedComponent(UpdatedComponent->GetRelativeRotation().RotateVector(FVector(speed*DeltaTime, 0, 0)), UpdatedComponent->GetRelativeRotation(), true, Hit);
 	if (Hit.IsValidBlockingHit()) {
+		if (Hit.GetActor()->ActorHasTag("target")) {
+			UE_LOG(LogTemp, Warning, TEXT("Hit a target!"));
+			
+		}
 		UE_LOG(LogTemp, Warning, TEXT("Hit!"));
 		UpdatedComponent->GetOwner()->Destroy();
 	}
