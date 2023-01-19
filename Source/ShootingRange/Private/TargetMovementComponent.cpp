@@ -5,6 +5,7 @@
 
 UTargetMovementComponent::UTargetMovementComponent() {
 	this->travelledDistance = 0;
+	this->Velocity = FVector(10, 0, 0);
 }
 
 void UTargetMovementComponent::TickComponent
@@ -13,10 +14,9 @@ void UTargetMovementComponent::TickComponent
 	enum ELevelTick TickType,
 	FActorComponentTickFunction* ThisTickFunction
 ) {
-	MoveUpdatedComponent(FVector(speed, 0, 0), UpdatedComponent->GetRelativeRotation(), true);
-	this->travelledDistance += speed * DeltaTime;
+	MoveUpdatedComponent(this->Velocity, UpdatedComponent->GetRelativeRotation(), true);
+	this->travelledDistance += float(this->Velocity.Size()) * DeltaTime;
 	if (this->travelledDistance >= this->maxDistance) {
 		UpdatedComponent->GetOwner()->Destroy();
 	}
-
 }

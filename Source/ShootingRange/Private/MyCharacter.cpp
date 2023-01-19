@@ -1,10 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "MyCharacter.h"
-#include "GameFramework/SpringArmComponent.h"
-#include "Camera/CameraComponent.h"
-#include "Components/ArrowComponent.h"
-#include "Bullet.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -37,4 +33,8 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 void AMyCharacter::Shoot() {
 	UE_LOG(LogTemp, Warning, TEXT("Shot!"));
 	GetWorld()->SpawnActor<AActor>(ProjectileType, this->GetActorLocation() + GetControlRotation().RotateVector(offset), this->GetControlRotation());
+}
+
+void AMyCharacter::IncreaseScore(float value) {
+	GetController()->GetPlayerState<AMyPlayerState>()->SetScore(GetController()->GetPlayerState<AMyPlayerState>()->GetScore() + value);
 }

@@ -19,7 +19,7 @@ void UBulletMovementComponent::TickComponent
 	if (Hit.IsValidBlockingHit()) {
 		if (Hit.GetActor()->ActorHasTag("target")) {
 			UE_LOG(LogTemp, Warning, TEXT("Hit a target!"));
-			
+			GetWorld()->GetFirstPlayerController()->GetPlayerState<AMyPlayerState>()->SetScore(GetWorld()->GetFirstPlayerController()->GetPlayerState<AMyPlayerState>()->GetScore()+5);
 		}
 		UE_LOG(LogTemp, Warning, TEXT("Hit!"));
 		UpdatedComponent->GetOwner()->Destroy();

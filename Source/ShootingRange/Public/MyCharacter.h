@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "MyPlayerState.h"
+#include "Bullet.h"
 #include "MyCharacter.generated.h"
 
 UCLASS()
@@ -14,6 +16,8 @@ class SHOOTINGRANGE_API AMyCharacter : public ACharacter
 public:
 	// Sets default values for this pawn's properties
 	AMyCharacter();
+
+	void IncreaseScore(float value);
 
 protected:
 	// Called when the game starts or when spawned

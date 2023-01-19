@@ -25,11 +25,8 @@ protected:
 		FActorComponentTickFunction* ThisTickFunction
 	) override;
 
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
-		float speed;
-
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float maxDistance;
+		float maxDistance = 10;
 
 private:
 	float travelledDistance;
