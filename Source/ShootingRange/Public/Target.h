@@ -16,6 +16,8 @@ public:
 	// Sets default values for this actor's properties
 	ATarget();
 
+	void SetVelocity(FVector velocity);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

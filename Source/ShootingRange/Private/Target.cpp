@@ -11,6 +11,10 @@ ATarget::ATarget()
 	movement = CreateDefaultSubobject<UTargetMovementComponent>(TEXT("Target Movement Component"));
 }
 
+void ATarget::SetVelocity(FVector velocity) {
+	this->movement->Velocity = velocity;
+}
+
 // Called when the game starts or when spawned
 void ATarget::BeginPlay()
 {
