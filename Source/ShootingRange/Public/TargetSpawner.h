@@ -30,7 +30,7 @@ protected:
 	TSubclassOf<class ATarget> target;
 
 	UPROPERTY(EditAnywhere)
-		TArray<class UBoxComponent*> SpawnVolumes;
+		TArray<class UBoxComponent*> SpawnVolumes = {};
 
 
 	float spawnInterval = 5;
