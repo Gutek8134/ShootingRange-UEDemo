@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "MyPlayerState.h"
+#include "GameFramework/PlayerState.h"
 #include "BulletMovementComponent.generated.h"
 
 /**

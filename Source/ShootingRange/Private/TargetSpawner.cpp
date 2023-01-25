@@ -39,7 +39,7 @@ void ATargetSpawner::SpawnTarget() {
 	location.Y += RandomFloat(-extent.Y / 2, extent.Y / 2);
 	location.Z += RandomFloat(-extent.Z / 2, extent.Z / 2);
 
-	GetWorld()->SpawnActor<AActor>(target, location, box->GetComponentRotation());
+	GetWorld()->SpawnActor<AActor>(target, location, box->GetComponentRotation().Add(0,0,-90));
 }
 
 unsigned int ATargetSpawner::RandomNumber(unsigned int min, unsigned int max) {

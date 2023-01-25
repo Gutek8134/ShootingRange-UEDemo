@@ -5,7 +5,7 @@
 
 UTargetMovementComponent::UTargetMovementComponent() {
 	this->travelledDistance = 0;
-	this->Velocity = FVector(10, 0, 0);
+	this->Velocity = FVector(1000, 0, 0);
 }
 
 void UTargetMovementComponent::TickComponent
@@ -15,10 +15,8 @@ void UTargetMovementComponent::TickComponent
 	FActorComponentTickFunction* ThisTickFunction
 ) {
 	FHitResult Hit;
-	SafeMoveUpdatedComponent(UpdatedComponent->GetRelativeRotation().RotateVector(this->Velocity)*DeltaTime, UpdatedComponent->GetRelativeRotation(), false, Hit);
+	SafeMoveUpdatedComponent(UpdatedComponent->GetRelativeRotation().RotateVector(Velocity) * DeltaTime, UpdatedComponent->GetRelativeRotation(), true, Hit);
 	if (Hit.IsValidBlockingHit()) {
-		UE_LOG(LogTemp, Warning, TEXT("%s"), *Hit.GetActor()->GetActorLabel())
-		if(Hit.GetActor()->ActorHasTag("Border"))
 		UpdatedComponent->GetOwner()->Destroy();
 	}
 	this->travelledDistance += float(this->Velocity.Size()) * DeltaTime;

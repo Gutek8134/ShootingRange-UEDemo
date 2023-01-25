@@ -2,7 +2,3 @@
 
 
 #include "MyPlayerState.h"
-
-void AMyPlayerState::AddScore(float score) {
-	this->SetScore(this->Score + score);
-}

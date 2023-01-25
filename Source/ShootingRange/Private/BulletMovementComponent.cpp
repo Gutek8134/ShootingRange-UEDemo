@@ -19,9 +19,12 @@ void UBulletMovementComponent::TickComponent
 	if (Hit.IsValidBlockingHit()) {
 		if (Hit.GetActor()->ActorHasTag("target")) {
 			UE_LOG(LogTemp, Warning, TEXT("Hit a target!"));
-			GetWorld()->GetFirstPlayerController()->GetPlayerState<AMyPlayerState>()->AddScore(5);
+			auto state = GetWorld()->GetFirstPlayerController()->GetPlayerState<APlayerState>();
+			if (state != NULL) {
+				state->SetScore(state->GetScore() + 5);
+			}
+			Hit.GetActor()->Destroy();
 		}
-		UE_LOG(LogTemp, Warning, TEXT("Hit!"));
 		UpdatedComponent->GetOwner()->Destroy();
 	}
 	travelledDistance += (speed * DeltaTime);

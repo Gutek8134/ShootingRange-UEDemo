@@ -26,7 +26,7 @@ protected:
 	) override;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		float maxDistance = 500;
+		float maxDistance = 10000;
 
 private:
 	float travelledDistance;

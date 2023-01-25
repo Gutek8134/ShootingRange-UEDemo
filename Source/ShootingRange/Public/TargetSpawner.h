@@ -23,14 +23,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere)
-	FVector maximumVelocity = FVector(10, 0, 0);
 
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<class ATarget> target;
 
-	UPROPERTY(EditAnywhere)
-		TArray<class UBoxComponent*> SpawnVolumes = {};
+	TArray<class UBoxComponent*> SpawnVolumes = {};
 
 
 	float spawnInterval = 5;

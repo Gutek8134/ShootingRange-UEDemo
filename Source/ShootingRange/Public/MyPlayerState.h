@@ -13,6 +13,4 @@ UCLASS()
 class SHOOTINGRANGE_API AMyPlayerState : public APlayerState
 {
 	GENERATED_BODY()
-public:
-	void AddScore(float score);
 };
