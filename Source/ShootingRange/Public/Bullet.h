@@ -14,7 +14,7 @@ class SHOOTINGRANGE_API ABullet : public AActor
 public:
 	// Sets default values for this actor's properties
 	ABullet();
-
+	UFUNCTION(BlueprintImplementableEvent)
 	void HitTarget();
 
 protected:

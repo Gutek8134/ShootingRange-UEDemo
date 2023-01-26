@@ -27,6 +27,10 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float travelledDistance;
+	
+	DECLARE_DELEGATE(UpdateScoreTextDG);
+
+	UpdateScoreTextDG UpdateScoreText;
 
 protected:
 	virtual void TickComponent
@@ -35,5 +39,4 @@ protected:
 		enum ELevelTick TickType,
 		FActorComponentTickFunction* ThisTickFunction
 	) override;
-
 };

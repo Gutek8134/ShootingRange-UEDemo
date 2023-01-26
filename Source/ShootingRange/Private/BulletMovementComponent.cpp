@@ -23,6 +23,7 @@ void UBulletMovementComponent::TickComponent
 			if (state != NULL) {
 				state->SetScore(state->GetScore() + 5);
 			}
+			UpdateScoreText.ExecuteIfBound();
 			Hit.GetActor()->Destroy();
 		}
 		UpdatedComponent->GetOwner()->Destroy();

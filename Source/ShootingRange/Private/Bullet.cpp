@@ -13,6 +13,7 @@ ABullet::ABullet()
 	PrimaryActorTick.bCanEverTick = false;
 
 	movementComponent = CreateDefaultSubobject<UBulletMovementComponent>(TEXT("MovementComponent"));
+	movementComponent->UpdateScoreText.BindUFunction(this, "HitTarget");
 }
 
 // Called when the game starts or when spawned
