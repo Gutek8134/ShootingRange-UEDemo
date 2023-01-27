@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "BulletMovementComponent.h"
 #include "Bullet.generated.h"
 
 UCLASS()
@@ -14,15 +15,14 @@ class SHOOTINGRANGE_API ABullet : public AActor
 public:
 	// Sets default values for this actor's properties
 	ABullet();
-	UFUNCTION(BlueprintImplementableEvent)
-	void HitTarget();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		class UBulletMovementComponent* movementComponent;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-		class UBulletMovementComponent* movementComponent;
 
 public:
 	// Called every frame

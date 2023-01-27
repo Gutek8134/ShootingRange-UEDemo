@@ -32,7 +32,8 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 void AMyCharacter::Shoot() {
 	UE_LOG(LogTemp, Warning, TEXT("Shot!"));
-	GetWorld()->SpawnActor<AActor>(ProjectileType, this->GetActorLocation() + GetControlRotation().RotateVector(offset), this->GetControlRotation());
+	auto bullet = GetWorld()->SpawnActor<ABullet>(ProjectileType, this->GetActorLocation() + GetControlRotation().RotateVector(offset), this->GetControlRotation());
+	bullet->movementComponent->UpdateScoreText.BindUFunction(this, "HitTarget");
 }
 
 void AMyCharacter::IncreaseScore(float value) {

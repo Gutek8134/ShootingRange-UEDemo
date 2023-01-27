@@ -2,9 +2,6 @@
 
 
 #include "Bullet.h"
-#include "Components/SphereComponent.h"
-#include "Particles/ParticleSystemComponent.h"
-#include "BulletMovementComponent.h"
 
 // Sets default values
 ABullet::ABullet()
@@ -13,7 +10,6 @@ ABullet::ABullet()
 	PrimaryActorTick.bCanEverTick = false;
 
 	movementComponent = CreateDefaultSubobject<UBulletMovementComponent>(TEXT("MovementComponent"));
-	movementComponent->UpdateScoreText.BindUFunction(this, "HitTarget");
 }
 
 // Called when the game starts or when spawned

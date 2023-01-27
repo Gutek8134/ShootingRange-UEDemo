@@ -19,6 +19,9 @@ public:
 
 	void IncreaseScore(float value);
 
+	UFUNCTION(BlueprintImplementableEvent)
+		void HitTarget();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
